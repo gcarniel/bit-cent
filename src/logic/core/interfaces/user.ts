@@ -3,6 +3,6 @@ export interface User {
   name: string
   email: string
   imageUrl: string | null
-  cpf: string
-  phone: string
+  cpf?: string
+  phone?: string
 }

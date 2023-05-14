@@ -1,14 +1,11 @@
 import { userMock } from '@/data/constants/userMock'
+import { useUser } from '@/hooks/useUser'
 import { Avatar, Menu } from '@mantine/core'
 import { IconArrowsRightLeft, IconLogout, IconUser } from '@tabler/icons-react'
 import Link from 'next/link'
 
 export function UserMenu() {
-  const user = userMock
-
-  const logout = () => {
-    console.log('sair')
-  }
+  const { user, logout } = useUser()
 
   return (
     <Menu>

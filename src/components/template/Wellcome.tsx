@@ -1,14 +1,13 @@
-import { userMock } from '@/data/constants/userMock'
-import { useContext } from 'react'
+import { useUser } from '@/hooks/useUser'
 
 export function Wellcome() {
-  const usuario = userMock
+  const { user } = useUser()
 
   function renderizarNome() {
     return (
-      <span className="hidden sm:inline">{usuario?.name?.split(' ')[0]}</span>
+      <span className="hidden sm:inline">, {user?.name?.split(' ')[0]}</span>
     )
   }
 
-  return <div className={`text-3xl font-black`}>Olá, {renderizarNome()} 🤑</div>
+  return <div className={`text-3xl font-black`}>Olá{renderizarNome()} 🤑</div>
 }
