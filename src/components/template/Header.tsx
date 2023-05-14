@@ -1,3 +1,4 @@
+import { Id } from '@/logic/core/shared/Id'
 import { UserMenu } from './UserMenu'
 import { Wellcome } from './Wellcome'
 

@@ -1,7 +1,8 @@
-import { User } from '@/interfaces/user'
+import { User } from '@/logic/core/interfaces/user'
+import { Id } from '@/logic/core/shared/Id'
 
 export const userMock = {
-  id: '121211dsdsdsf',
+  id: Id.new(),
   name: 'Dunha da Silva',
   email: 'dunha@gmail.com',
   imageUrl: null,

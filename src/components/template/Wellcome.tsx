@@ -10,5 +10,5 @@ export function Wellcome() {
     )
   }
 
-  return <div className={`text-3xl font-black`}>Olá {renderizarNome()} 👋</div>
+  return <div className={`text-3xl font-black`}>Olá, {renderizarNome()} 🤑</div>
 }
