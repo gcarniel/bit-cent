@@ -38,7 +38,8 @@ export function AuthenticationProvider({ children }: { children: ReactNode }) {
   const updateUser = async (newUser: User) => {
     if (user && user.email !== newUser.email) return logout()
     if (user && user.email === newUser.email) {
-      await services.user.save(user)
+      await services.user.save(newUser)
+      setUser(newUser)
     }
   }
 
