@@ -5,27 +5,65 @@ import { List } from './List'
 import { emptyTransaction } from '@/logic/core/interfaces/transaction'
 import { FinanceForm } from './Form'
 import { NotFound } from '../template/NotFound'
-import { Button } from '@mantine/core'
-import { IconPlus } from '@tabler/icons-react'
-import { useTransaction } from '@/hooks/useTransaction'
+import { Button, SegmentedControl } from '@mantine/core'
+import { IconLayoutGrid, IconList, IconPlus } from '@tabler/icons-react'
+import { displayType, useTransaction } from '@/hooks/useTransaction'
+import { DateSelect } from '../template/DateSelect'
+import Grid from './Grid'
 
 export function PageFinance() {
-  const { transaction, transactions, remove, save, select } = useTransaction()
+  const {
+    transaction,
+    transactions,
+    remove,
+    save,
+    select,
+    date,
+    setDate,
+    setDisplayType,
+    displayType,
+  } = useTransaction()
+
+  function renderButtons() {
+    return (
+      <div className="flex justify-between">
+        <DateSelect date={date} changeDate={setDate} />
+
+        <div className="flex gap-5">
+          <Button
+            className="bg-blue-500 w-56"
+            leftIcon={<IconPlus />}
+            onClick={() => select(emptyTransaction)}
+          >
+            Nova Transação
+          </Button>
+
+          <SegmentedControl
+            data={[
+              { label: <IconList />, value: 'list' },
+              { label: <IconLayoutGrid />, value: 'grid' },
+            ]}
+            onChange={(type) => setDisplayType(type as displayType)}
+          />
+        </div>
+      </div>
+    )
+  }
+
+  function renderDisplay() {
+    return displayType === 'list' ? (
+      <List transactions={transactions} selectTransaction={select} />
+    ) : (
+      <Grid transactions={transactions} selectTransaction={select} />
+    )
+  }
 
   return (
     <Page>
       <Header />
       <Content className="gap-5">
-        <Button
-          className="bg-blue-500 w-56"
-          leftIcon={<IconPlus />}
-          onClick={() => select(emptyTransaction)}
-        >
-          Nova Transação
-        </Button>
-
-        {transactions.length === 0 && <NotFound>Nada</NotFound>}
-
+        {renderButtons()}
+        {transactions.length === 0 && <NotFound>Nada por aqui</NotFound>}
         {transaction ? (
           <FinanceForm
             transaction={transaction}
@@ -34,7 +72,7 @@ export function PageFinance() {
             cancel={() => select(null)}
           />
         ) : (
-          <List transactions={transactions} selectTransaction={select} />
+          renderDisplay()
         )}
       </Content>
     </Page>

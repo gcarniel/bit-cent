@@ -22,7 +22,7 @@ export default function UserForm() {
     if (!user) return
 
     setData(user)
-  }, [user])
+  }, [user, setData])
 
   return (
     <div className="flex flex-col gap-5 mt-7">
