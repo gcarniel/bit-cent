@@ -1,4 +1,4 @@
-import { Page } from '../template/page'
+import { Page } from '../template/Page'
 import { Benefits } from './benefits'
 import { Depositions } from './depositions'
 import { Emphasis } from './emphasis'

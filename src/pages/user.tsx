@@ -1,7 +1,7 @@
 import { Content } from '@/components/template/Content'
 import Header from '@/components/template/Header'
 import { PageTitle } from '@/components/template/PageTitle'
-import { Page } from '@/components/template/page'
+import { Page } from '@/components/template/Page'
 import UserForm from '@/components/user/Form'
 import { IconForms } from '@tabler/icons-react'
 

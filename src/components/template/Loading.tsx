@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import loading from '../../../public/loading.gif'
-import { Page } from './page'
+import { Page } from './Page'
 
 export function Loading() {
   return (
