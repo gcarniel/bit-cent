@@ -1,7 +1,7 @@
 <h1>TODAS REFERÊNCIAS DESSE README DEIXEI PARA O REPOSITÓRIO OFICIAL COMO FORMA DE CRÉDITOS.</h1>
 
 <p align="center">
-<img src=".github/logo.png" alt="Logo" width="100" />
+<img src="public/logo.png" alt="Logo" width="100" />
 </p>
 
 <p align="center">
@@ -14,7 +14,7 @@
 </p>
 
 <h2 align="center">
-    <img alt="Bitcent" src=".github/cover.svg" />
+    <img alt="Bitcent" src="public/cover.svg" />
 </h2>
 
 <br>
